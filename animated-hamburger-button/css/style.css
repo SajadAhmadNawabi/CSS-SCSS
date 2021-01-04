@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to top right, rgb(37, 99, 235), rgb(0, 177, 255));
+}
+
+.hamburger-button {
+  position: relative;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: grid;
+  place-items: center;
+}
+
+/* Hide the checkbox input */
+.hamburger-button__checkbox {
+  display: none;
+}
+
+.hamburger-button__label {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.hamburger-button__icon {
+  display: block;
+  width: 35px;
+  height: 3px;
+  background-color: #111;
+  position: relative;
+  transition: background-color 0.2s linear;
+}
+
+.hamburger-button__icon::before,
+.hamburger-button__icon::after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 3px;
+  background-color: #111;
+  position: absolute;
+  transition: transform 0.3s linear;
+}
+
+.hamburger-button__icon::before {
+  transform: translateY(-10px);
+}
+
+.hamburger-button__icon::after {
+  transform: translateY(10px);
+}
+
+.hamburger-button__checkbox:checked
+  ~ .hamburger-button__label
+  .hamburger-button__icon {
+  background-color: transparent;
+}
+
+.hamburger-button__checkbox:checked
+  ~ .hamburger-button__label
+  .hamburger-button__icon::before {
+  transform: rotate(45deg);
+}
+
+.hamburger-button__checkbox:checked
+  ~ .hamburger-button__label
+  .hamburger-button__icon::after {
+  transform: rotate(-45deg);
+}
